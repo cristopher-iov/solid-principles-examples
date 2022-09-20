@@ -1,20 +1,14 @@
 import useFetchPosts from "@/hooks/useFetchPosts";
 
+import PostsList from "@/components/posts/list/PostsList";
+import PostsLoader from "@/components/posts/loader/PostsLoader";
+
 export default function SingleResponsibilityPrinciple() {
   const { isFetching, posts } = useFetchPosts();
 
   if (isFetching) {
-    return <div>Is loading...</div>;
+    return <PostsLoader />;
   }
 
-  return (
-    <ul>
-      {posts.map(({ id, title }) => (
-        <li key={id}>
-          <span>{id}</span>
-          <span>{title}</span>
-        </li>
-      ))}
-    </ul>
-  );
+  return <PostsList list={posts} />;
 }
