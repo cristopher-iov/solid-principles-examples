@@ -1,23 +1,18 @@
-import useSWR from "swr";
-
 import { TodoType } from "@/types/todo";
 
-import { TODOS_API_URL } from "@/constants/todo";
+import useData from "@/hooks/useData";
 
 import TodosList from "./list/TodosList";
 
-async function fetcher(url: string) {
-  try {
-    const res = await fetch(url);
+type TodosProps = {
+  readonly id: string;
+  readonly fetcher: () => Promise<TodoType[]>;
+};
 
-    return res.json();
-  } catch (error) {
-    console.error(error);
-  }
-}
+export default function Todos(props: TodosProps) {
+  const { id, fetcher } = props;
 
-export default function Todos() {
-  const { data } = useSWR<TodoType[]>(TODOS_API_URL, fetcher);
+  const { data } = useData<TodoType[]>({ key: id, fetcher });
 
   if (!data) {
     return <div>Loading...</div>;
