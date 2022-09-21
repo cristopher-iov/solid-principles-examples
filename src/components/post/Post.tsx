@@ -12,11 +12,11 @@ export default function Post(props: PostProps) {
 
   return (
     <div>
-      <PostTitle post={post} />
+      <PostTitle title={post.title} />
 
       <p>Author: {post.author.name}</p>
 
-      <PostDate post={post} />
+      <PostDate createdAt={post.createdAt} />
     </div>
   );
 }

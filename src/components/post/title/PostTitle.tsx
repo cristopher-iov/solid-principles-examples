@@ -1,11 +1,9 @@
 import { PostType } from "@/types/post";
 
-type PostTitleProps = {
-  readonly post: PostType;
-};
+type PostTitleProps = Pick<PostType, "title">;
 
 export default function PostTitle(props: PostTitleProps) {
-  const { post } = props;
+  const { title } = props;
 
-  return <h1>{post.title}</h1>;
+  return <h1>{title}</h1>;
 }
