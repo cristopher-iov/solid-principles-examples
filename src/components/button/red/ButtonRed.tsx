@@ -1,14 +1,12 @@
 import Button, { ButtonProps } from "../Button";
 
-type ButtonRedProps = Pick<ButtonProps, "children"> & {
-  readonly isBig?: boolean;
-};
+type ButtonRedProps = Pick<ButtonProps, "children" | "size">;
 
 export default function ButtonRed(props: ButtonRedProps) {
-  const { isBig, children } = props;
+  const { size, children } = props;
 
   return (
-    <Button color="red" size={isBig ? "xl" : "sm"}>
+    <Button color="red" size={size}>
       {children}
     </Button>
   );

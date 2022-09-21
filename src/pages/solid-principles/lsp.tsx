@@ -1,3 +1,4 @@
+import Button from "@/components/button/Button";
 import ButtonRed from "@/components/button/red/ButtonRed";
 
 export default function LiskovSubstitutionPrinciple() {
@@ -5,7 +6,10 @@ export default function LiskovSubstitutionPrinciple() {
     <div>
       <h2>LSP</h2>
 
-      <ButtonRed isBig>My button is works</ButtonRed>
+      <Button size="xl" color="blue">
+        My button is works
+      </Button>
+      <ButtonRed size="sm">My button is works</ButtonRed>
     </div>
   );
 }
